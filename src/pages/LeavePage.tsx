@@ -1,7 +1,14 @@
+import SideNavBar from "../components/SideNavBar";
+
 const LeavePage:React.FC = () => {
     return(
-        <h1>Employee Leave Page</h1>
-    )
+        <div className="flex">
+            <SideNavBar />
+            <div className="flex-1 p-6">
+                <h1 className="text-2xl text-blue-500">Employee Leave Page</h1>
+            </div>
+        </div>
+    );
 };
 
 export default LeavePage;
