@@ -22,11 +22,11 @@ const LoginPage: React.FC = () => {
             return;
         }
 
-        // Handle form submission logic here
         console.log(`Email: ${form.email}`);
         console.log(`Password: ${form.password}`);
 
         // perform some logic
+         
 
         // then cleanup the input field
         setForm({ email: '', password: '' });

@@ -1,4 +1,4 @@
-import SideNavBar from "../components/SideNavBar";
+import SideNavBar from "../../components/SideNavBar";
 
 const LeavePage:React.FC = () => {
     return(

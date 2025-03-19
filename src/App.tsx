@@ -4,10 +4,10 @@ import './styles/index.css';
 import './styles/global.css';
 
 import LoginPage from "./pages/LoginPage";
-import Index from "./pages/Index"; // dashboard
-import AttendancePage from "./pages/AttendancePage";
-import TasksPage from "./pages/TasksPage";
-import LeavePage from "./pages/LeavePage";
+import Index from "./pages/Dashboard/Index"; // dashboard
+import AttendancePage from "./pages/Attendance/AttendancePage";
+import TasksPage from "./pages/Task/TasksPage";
+import LeavePage from "./pages/Leave/LeavePage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 
