@@ -6,3 +6,9 @@ export interface LoginForm{
 export interface ErrorResponse {
     message?: string;
 }
+
+export interface User {
+    emp_id: string;
+    email: string;
+    exp: number;
+}

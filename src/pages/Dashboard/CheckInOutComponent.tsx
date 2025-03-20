@@ -2,11 +2,24 @@ import { useState, useEffect } from "react";
 import { checkIn, checkOut } from "../../services/api";
 import { AxiosError } from "axios";
 import { ErrorResponse } from "../../types";
+import { useUser } from "../../hooks/useUser";
 
 const CheckInOutComponent: React.FC = () => {
     const [status, setStatus] = useState<string>("");
     const [checkInTime, setCheckInTime] = useState<Date | null>(null);
     const [elapsedTime, setElapsedTime] = useState<string>("");
+    const [isloading, setIsLoading] = useState<boolean>(true);
+
+    const { user } = useUser();
+
+    useEffect(() => {
+        if (!user) {
+            setIsLoading(true);
+        } else {
+            setIsLoading(false);
+            console.log(user);
+        }
+    }, [user]);
 
     const getLocation = (action: "checkin" | "checkout") => {
         if (!navigator.geolocation) {
@@ -27,10 +40,15 @@ const CheckInOutComponent: React.FC = () => {
                     updateElapsedTime(now);
                 }
 
+                if (!user) {
+                    setStatus("User information is missing.");
+                    return;
+                }
+
                 try {
                     const response = action === "checkin"
-                        ? await checkIn(latitude, longitude)
-                        : await checkOut(latitude, longitude);
+                        ? await checkIn(latitude, longitude, user.emp_id)
+                        : await checkOut(latitude, longitude, user.emp_id);
 
                     setStatus(response.data.message);
 
@@ -88,7 +106,7 @@ const CheckInOutComponent: React.FC = () => {
                 {checkInTime && (
                     <button
                         onClick={() => getLocation("checkout")}
-                        className="button w-45 bg-blue-600 text-white py-2 rounded-sm hover:bg-blue-700 transition"
+                        className="button w-45 bg-red-600 text-white py-2 rounded-sm hover:bg-red-700 transition"
                     >
                         Check-Out
                     </button>

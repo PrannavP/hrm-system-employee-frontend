@@ -1,4 +1,5 @@
 import SideNavBar from "../../components/SideNavBar";
+import withAuthRedirect from "../../hocs/withAuthRedirect";
 
 const LeavePage:React.FC = () => {
     return(
@@ -11,4 +12,5 @@ const LeavePage:React.FC = () => {
     );
 };
 
-export default LeavePage;
+const AuthRedirectedLeave = withAuthRedirect(LeavePage);
+export default AuthRedirectedLeave;

@@ -1,9 +1,11 @@
 import React, { useState, FormEvent } from 'react';
+import { login } from '../services/api';
 import { LoginForm } from '../types';
 
 const LoginPage: React.FC = () => {
     const [form, setForm] = useState<LoginForm>({ email: '', password: '' });
     const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
+    const [message, setMessage] = useState<string>("");
 
     const handleSubmit = async (event: FormEvent) => {
         event.preventDefault();
@@ -26,7 +28,25 @@ const LoginPage: React.FC = () => {
         console.log(`Password: ${form.password}`);
 
         // perform some logic
-         
+        try{
+            const response = await login(form.email, form.password);
+            console.log(response);
+            if(response.status === 200){
+                // set token in localstorage
+                localStorage.setItem("token", response.data.token);
+
+                // set message
+                setMessage(response.data.message);
+                console.log(message);
+
+                // redirect to dashboard
+                window.location.href = "/";
+            }else{
+                setMessage(response.data.message);
+            }
+        }catch(err){
+            console.log(err);
+        }
 
         // then cleanup the input field
         setForm({ email: '', password: '' });

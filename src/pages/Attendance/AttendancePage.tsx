@@ -1,4 +1,5 @@
 import SideNavBar from "../../components/SideNavBar";
+import withAuthRedirect from "../../hocs/withAuthRedirect";
 
 const AttendancePage:React.FC = () => {
     return(
@@ -11,4 +12,5 @@ const AttendancePage:React.FC = () => {
     )
 };
 
-export default AttendancePage;
+const AuthRedirectedAttendance = withAuthRedirect(AttendancePage);
+export default AuthRedirectedAttendance;

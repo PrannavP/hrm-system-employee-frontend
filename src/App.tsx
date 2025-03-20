@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { UserProvider } from "./context/UserContext";
 
 import './styles/index.css';
 import './styles/global.css';
@@ -13,16 +14,20 @@ import NotFoundPage from "./pages/NotFoundPage";
 
 const App = () => {
     return(
-        <Router>
-            <Routes>
-                <Route path="/login" element={<LoginPage />} />
-                <Route path="/" element={<Index />} />
-                <Route path="/attendance" element={<AttendancePage />} />
-                <Route path="/tasks" element={<TasksPage />} />
-                <Route path="/leave" element={<LeavePage />} />
-                <Route path="*" element={<NotFoundPage />} />
-            </Routes>
-        </Router>
+        <UserProvider>
+            <Router>
+                <Routes>
+                    <Route path="/login" element={<LoginPage />} />
+
+                    <Route path="/" element={<Index />} />
+                    <Route path="/attendance" element={<AttendancePage />} />
+                    <Route path="/tasks" element={<TasksPage />} />
+                    <Route path="/leave" element={<LeavePage />} />
+
+                    <Route path="*" element={<NotFoundPage />} /> 
+                </Routes>
+            </Router>
+        </UserProvider>
     );
 };
 

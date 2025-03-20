@@ -1,4 +1,5 @@
 import SideNavBar from "../../components/SideNavBar";
+import withAuthRedirect from "../../hocs/withAuthRedirect";
 
 const TasksPage:React.FC = () => {
     return(
@@ -11,4 +12,5 @@ const TasksPage:React.FC = () => {
     );
 };
 
-export default TasksPage;
+const AuthRedirectedTasks = withAuthRedirect(TasksPage);
+export default AuthRedirectedTasks;
