@@ -18,25 +18,25 @@ const SideNavBar: React.FC = () => {
             <nav className="flex-1 ml-1 px-4 py-6">
                 <ul>
                     <li className="mb-4">
-                        <Link to="/" className="flex items-center text-base font-medium hover:text-gray-500">
+                        <Link to="/" className="flex items-center text-lg font-medium hover:text-gray-500">
                             <RxDashboard className="mr-2 text-black" />
                             Dashboard
                         </Link>
                     </li>
                     <li className="mb-4">
-                        <Link to="/attendance" className="flex items-center text-base font-medium hover:text-gray-500">
+                        <Link to="/attendance" className="flex items-center text-lg font-medium hover:text-gray-500">
                             <RxClock className="mr-2 text-black" />
                             Attendance
                         </Link>
                     </li>
                     <li className="mb-4">
-                        <Link to="/tasks" className="flex items-center text-base font-medium hover:text-gray-500">
+                        <Link to="/tasks" className="flex items-center text-lg font-medium hover:text-gray-500">
                             <RxCheckbox className="mr-2 text-black" />
                             Tasks
                         </Link>
                     </li>
                     <li className="mb-4">
-                        <Link to="/leave" className="flex items-center text-base font-medium hover:text-gray-500">
+                        <Link to="/leave" className="flex items-center text-lg font-medium hover:text-gray-500">
                             <RxCalendar className="mr-2 text-black" />
                             Leave Management
                         </Link>
