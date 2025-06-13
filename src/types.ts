@@ -11,4 +11,5 @@ export interface User {
     emp_id: string;
     email: string;
     exp: number;
+    id: number
 }
