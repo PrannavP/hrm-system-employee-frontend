@@ -143,11 +143,11 @@ const LoginPage: React.FC = () => {
                             </p>
                         )}
                     </div>
-                    <div className="mb-4 text-right">
+                    {/* <div className="mb-4 text-right">
                         <span className="text-blue-900 text-sm font-medium mt-6">
                             <a href="#">Forgot Password?</a>
                         </span>
-                    </div>
+                    </div> */}
                     <button
                         type="submit"
                         className="button w-full bg-blue-600 text-white py-2 rounded-sm hover:bg-blue-700 transition"
