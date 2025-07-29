@@ -10,6 +10,7 @@ import AttendancePage from "./pages/Attendance/AttendancePage";
 import TasksPage from "./pages/Task/TasksPage";
 import LeavePage from "./pages/Leave/LeavePage";
 import NotFoundPage from "./pages/NotFoundPage";
+import EditTaskPage from "./pages/Task/EditTaskPage";
 
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
                     <Route path="/attendance" element={<AttendancePage />} />
                     <Route path="/tasks" element={<TasksPage />} />
                     <Route path="/leave" element={<LeavePage />} />
+                    <Route path="/edit-task/:assigned_to/:task_id" element={<EditTaskPage />} />
 
                     <Route path="*" element={<NotFoundPage />} /> 
                 </Routes>

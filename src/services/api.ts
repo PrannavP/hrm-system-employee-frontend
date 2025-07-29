@@ -50,3 +50,27 @@ export const timerSyncRequest = async(emp_id: number) => {
 export const getSyncedTime = async(emp_id: number) => {
     return axios.post(`${API_URL}/get-synced-timer`, { emp_id });
 };
+
+// Get tasks by employee ID not emp_id
+export const getEmployeeTasksById = async(emp_id: number) => {
+    return axios.get(`${API_URL}/tasks/get-tasks/${emp_id}`);
+};
+
+// Get attendance by emp_id not ID
+export const getEmployeeAttendance = async(emp_id: string) => {
+    return axios.get(`${API_URL}/attendance/${emp_id}`);
+};
+
+// Get tasks by employee ID not emp_id and task_id
+export const getEmployeeAssignedTasks = async(emp_id: number, task_id: number) => {
+    return axios.get(`${API_URL}/tasks/get-tasks/${emp_id}/${task_id}`);
+};
+
+// Update task status
+export const updateTaskStatus = async (taskId: number, status: string) => {
+    return axios.post(`${API_URL}/tasks/update-task-field`, {
+        taskId,
+        field: 'status',
+        value: status,
+    });
+};

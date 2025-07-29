@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import SideNavBar from "../../components/SideNavBar";
 import { getEmployeeAssignedTasks, updateTaskStatus } from "../../services/api";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 type Task = {
     id: number;
@@ -54,14 +52,14 @@ const EditTaskPage: React.FC = () => {
 
         try {
             if (!task) {
-                toast.error("Task not found.");
+                alert("Task not found.");
                 return;
             }
             await updateTaskStatus(task.id, status);
-            toast.success("Task status updated successfully!");
+            alert("Task status updated successfully!");
         } catch (error) {
             console.error("Failed to update task status:", error);
-            toast.error("Failed to update status. Please try again.");
+            alert("Failed to update status. Please try again.");
         }
     };
 
@@ -96,11 +94,10 @@ const EditTaskPage: React.FC = () => {
             <div className="w-64 flex-shrink-0 h-screen sticky top-0">
                 <SideNavBar />
             </div>
-            <div className="flex-grow p-6 flex items-center">
+            <div className="flex-grow flex items-center justify-center p-6">
                 <form
                     onSubmit={handleSubmit}
-                    className="bg-white rounded-xl shadow-md w-full border border-gray-200 p-8"
-                    style={{ maxWidth: "100%" }}
+                    className="bg-white p-8 rounded-xl shadow-md w-full max-w-lg border border-gray-200"
                 >
                     <h2 className="text-2xl font-bold mb-6 text-gray-800">Edit Task Status</h2>
                     <div className="mb-4">
